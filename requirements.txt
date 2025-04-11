@@ -1,0 +1,26 @@
+# Core dependencies
+tweepy>=4.0
+pymongo>=4.0
+python-dotenv>=0.19
+requests>=2.26
+schedule>=1.1
+APScheduler>=3.9
+pydantic>=2.0
+pydantic-settings>=2.0
+cryptography>=3.4
+modal>=0.2
+diffusers>=0.24
+transformers>=4.30
+pillow>=9.0
+serpapi>=0.1
+grafana-api==1.0.3
+textblob>=0.17.1
+
+# Development dependencies
+pytest>=7.0
+black>=22.0
+flake8>=4.0
+mypy>=0.9
+python-json-logger>=2.0.0
+prometheus-client>=0.16.0
+circuitbreaker>=1.4.0

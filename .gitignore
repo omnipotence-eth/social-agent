@@ -1,0 +1,89 @@
+# Environment variables
+.env
+.env.*
+*.env
+*.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+images/
+vault/
+
+# Docker
+.docker/
+docker-compose.override.yml
+docker-compose.*.yml
+
+# System
+.DS_Store
+Thumbs.db
+
+# Security
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+*.der
+*.p7b
+*.p7c
+*.p7m
+*.p7s
+*.p8
+*.p10
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.p7b
+*.p7c
+*.p7m
+*.p7s
+*.p8
+*.p10
+*.p12
+*.pfx
+
+# Additional security-related entries
+# Add any additional security-related entries here 

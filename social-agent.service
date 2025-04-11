@@ -1,0 +1,15 @@
+[Unit]
+Description=Social Agent Service
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+User=your_username
+WorkingDirectory=/path/to/social_agent
+Environment=PYTHONPATH=/path/to/social_agent
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 

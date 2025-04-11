@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - ./data:/app/data
+      - ./images:/app/images
+      - ./logs:/app/logs
+      - ./vault:/app/vault
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+    networks:
+      - social_agent_network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - social_agent_network
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  monitoring:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - app
+    networks:
+      - social_agent_network
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_SECURITY_DISABLE_GRAVATAR=true
+      - GF_SECURITY_ALLOW_EMBEDDING=false
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  mongodb_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  social_agent_network:
+    driver: bridge
+    internal: true 
