@@ -1,8 +1,14 @@
-# Social Agent
+# Social Agent 🤖
 
-A powerful social media automation tool built with Python, leveraging AI for content generation and engagement.
+A powerful social media automation tool built with Python, leveraging AI for content generation and engagement. This project demonstrates my skills in:
+- Full-stack development
+- AI integration
+- API development
+- Security best practices
+- Docker containerization
+- System monitoring
 
-## Features
+## 🚀 Features
 
 - 🤖 AI-powered content generation using Grok
 - 🖼️ Image generation with Stable Diffusion
@@ -12,16 +18,35 @@ A powerful social media automation tool built with Python, leveraging AI for con
 - 🔒 Secure credential management
 - 📝 Comprehensive logging and monitoring
 
-## Prerequisites
+## 🛠️ Technical Stack
 
-- Docker and Docker Compose
-- API keys for:
-  - X (Twitter)
-  - Grok
-  - Modal
-  - SerpAPI
+- **Backend**: Python 3.9+
+- **AI/ML**: Grok AI, Stable Diffusion
+- **Database**: MongoDB
+- **Containerization**: Docker
+- **Monitoring**: Grafana
+- **APIs**: Twitter, Grok, Modal, SerpAPI
+- **Security**: Environment variables, Rate limiting, Input sanitization
 
-## Installation
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    A[Social Agent] --> B[Content Generation]
+    A --> C[Image Generation]
+    A --> D[Trend Monitoring]
+    A --> E[Interaction Module]
+    B --> F[Grok AI]
+    C --> G[Stable Diffusion]
+    D --> H[SerpAPI]
+    E --> I[Twitter API]
+    A --> J[Analytics]
+    A --> K[Monitoring]
+    J --> L[MongoDB]
+    K --> M[Grafana]
+```
+
+## 🚀 Getting Started
 
 1. Clone the repository:
 ```bash
@@ -29,78 +54,75 @@ git clone https://github.com/YOUR_USERNAME/social-agent.git
 cd social-agent
 ```
 
-2. Create a `.env` file:
+2. Set up environment variables:
 ```bash
 cp .env.example .env
 ```
+Edit `.env` with your credentials (see Security section below)
 
-3. Edit `.env` with your credentials:
-```env
-# Add your API keys and credentials
-X_API_KEY=your_key
-X_API_SECRET=your_secret
-X_ACCESS_TOKEN=your_token
-X_ACCESS_TOKEN_SECRET=your_token_secret
-GROK_API_KEY=your_grok_key
-MODAL_API_KEY=your_modal_key
-SERPAPI_API_KEY=your_serpapi_key
-```
-
-4. Start the services:
+3. Start with Docker:
 ```bash
 docker-compose up -d --build
 ```
 
-## Accessing the Dashboard
+## 🔒 Security Implementation
 
-The monitoring dashboard is available at:
+This project implements several security best practices:
+
+1. **Credential Management**:
+   - Environment variables for sensitive data
+   - Secure vault for credential storage
+   - Git-secrets for preventing accidental commits
+
+2. **API Security**:
+   - Rate limiting implementation
+   - Input sanitization
+   - Error handling
+   - Circuit breaker pattern
+
+3. **Container Security**:
+   - Read-only file systems
+   - No new privileges
+   - Internal networking
+   - Health checks
+
+4. **Monitoring**:
+   - System metrics collection
+   - API call tracking
+   - Error logging
+   - Performance monitoring
+
+## 📊 Monitoring Dashboard
+
+Access the Grafana dashboard at:
 ```
 http://localhost:3000
 ```
 
-Default credentials:
-- Username: admin
-- Password: admin
+## 🧪 Testing
 
-## Project Structure
-
-```
-social-agent/
-├── main.py              # Main application entry point
-├── content_generator.py # AI content generation
-├── image_generator.py   # Image generation
-├── x_api_client.py     # Twitter API client
-├── database.py         # MongoDB operations
-├── analytics.py        # Analytics tracking
-├── monitoring.py       # System monitoring
-├── utils.py           # Utility functions
-├── config.py          # Configuration management
-├── docker-compose.yml # Docker configuration
-└── Dockerfile         # Application container setup
+Run tests with coverage:
+```bash
+pytest --cov=./
 ```
 
-## Security
+## 📚 Documentation
 
-- API keys are stored securely using environment variables
-- Sensitive files are excluded from version control
-- MongoDB runs in a secure container
-- All API calls are rate-limited
-- Input sanitization for all user data
+- [API Documentation](docs/api.md)
+- [Architecture Overview](docs/architecture.md)
+- [Security Guidelines](docs/security.md)
 
-## Monitoring
+## 🤝 Contributing
 
-- System metrics collection
-- API call tracking
-- Performance monitoring
-- Error tracking and alerting
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 👨‍💻 Author
 
-- Grok AI for content generation
-- Stable Diffusion for image generation
-- MongoDB for data storage
-- Twitter (X) for platform access 
+[Your Name]
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- Portfolio: [Your Website](https://yourwebsite.com) 
